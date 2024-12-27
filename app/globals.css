@@ -19,3 +19,36 @@ body {
   color: var(--foreground);
   background: var(--background);
 }
+
+@layer utilities {
+  /* Scrollbar genişliği ve renkleri */
+  .scrollbar {
+    @apply overflow-auto; /* Scroll için Tailwind özelliği */
+  }
+
+  /* WebKit Tabanlı Tarayıcılar */
+  .scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: #000000; /* Arkaplan rengi */
+    border-radius: 16px;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #000000; /* Scrollbar rengi */
+    border-radius: 4px;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #000000; /* Hover rengi */
+  }
+
+  /* Firefox Desteği */
+  .scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #2e2e2e #4b4b4b;
+  }
+}
