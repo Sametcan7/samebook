@@ -1,4 +1,4 @@
-import ProfileHeader from "@/samebook/ui/pages/userprofile/profileHeader";
+import ProfileHeader from "@/samebook/pages/userProfile/profileHeader";
 
 export default function UserProfileLayout({
   children,
@@ -6,11 +6,9 @@ export default function UserProfileLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      <div className="bg-[#252728]">
-        <ProfileHeader />
-      </div>
+    <>
+      <ProfileHeader />
       <div className="bg-[#1C1C1D]">{children}</div>
-    </div>
+    </>
   );
 }

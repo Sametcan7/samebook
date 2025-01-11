@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
-import "./globalicons.css";
-import Navigation from "@/samebook/ui/navigation/navigation";
+import "./icons.css";
+import Navigation from "@/samebook/layout/navigation/navigation";
 
 const roboto = Roboto_Condensed({
   subsets: ["latin"],
@@ -22,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className} antialiased`}>
-        <div>
-          <Navigation />
+        <Navigation />
+        <div className="min-h-screen bg-background-primary pt-[var(--header-height)]">
+          {children}
         </div>
-        <div className="pt-[var(--header-height)] bg-background-primary min-h-screen">{children}</div>
       </body>
     </html>
   );

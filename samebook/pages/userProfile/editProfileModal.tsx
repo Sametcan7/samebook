@@ -1,17 +1,19 @@
 import Image from "next/image";
 import profiledefaultimage from "@/public/profiledefaultimage.png";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { ModalTriggerContext } from "@/samebook/contexts/profileModalTrigger";
 
-interface EditProfileProps {
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+// interface EditProfileProps {
+//   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+// }
 
-export default function EditProfile({ setIsOpen }: EditProfileProps) {
+export default function EditProfile() {
   const modalRef = useRef<HTMLDivElement | null>(null);
+
+  const { setIsOpen } = useContext(ModalTriggerContext);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      console.log(e.target);
       if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
         setIsOpen(false);
       }
@@ -25,20 +27,18 @@ export default function EditProfile({ setIsOpen }: EditProfileProps) {
   }, [setIsOpen]);
 
   return (
-    <div className="fixed h-screen w-screen bg-black bg-opacity-40  inset-0 z-10">
-      <div className="flex justify-center overflow-y-scroll py-10  h-full w-full">
+    <div className="fixed inset-0 z-10 h-screen w-screen bg-black bg-opacity-40">
+      <div className="flex h-full w-full justify-center overflow-y-scroll py-10">
         <div
           ref={modalRef}
-          className="bg-background-secondary rounded-md  min-h-fit border-divider_secondary border-[1px] w-[700px]"
-        >
+          className="min-h-fit w-[700px] rounded-md border-[1px] border-divider_secondary bg-background-secondary">
           {/* Head */}
           <div className="border-b-[1px] border-divider_secondary">
-            <div className="text-2xl relative font-bold p-4 text-center">
+            <div className="relative p-4 text-center text-2xl font-bold">
               <p>Edit profile</p>
               <button
                 onClick={() => setIsOpen(false)}
-                className="transition-transform duration-100 ease-in-out absolute flex right-2  hover:bg-button-primary active:scale-90  rounded-full p-2 top-1/2 -translate-y-1/2"
-              >
+                className="absolute right-2 top-1/2 flex -translate-y-1/2 rounded-full p-2 transition-transform duration-100 ease-in-out hover:bg-button-primary active:scale-90">
                 <span className="material-symbols-outlined material-icons">
                   close
                 </span>
@@ -46,11 +46,11 @@ export default function EditProfile({ setIsOpen }: EditProfileProps) {
             </div>
           </div>
           {/* Profile Photo */}
-          <div className=" border-divider_secondary">
+          <div className="border-divider_secondary">
             <div className="p-4">
-              <div className="flex text-xl  justify-between">
+              <div className="flex justify-between text-xl">
                 <p className="font-semibold">Profile picture</p>
-                <p className="text-link-primary   active:bg-button-active p-1 rounded-md cursor-pointer hover:bg-button-primary">
+                <p className="cursor-pointer rounded-md p-1 text-link-primary hover:bg-button-primary active:bg-button-active">
                   Add
                 </p>
               </div>
@@ -66,25 +66,25 @@ export default function EditProfile({ setIsOpen }: EditProfileProps) {
             </div>
           </div>
           {/* Cover Photo */}
-          <div className=" border-divider_secondary">
+          <div className="border-divider_secondary">
             <div className="p-4">
-              <div className="flex text-xl  justify-between">
+              <div className="flex justify-between text-xl">
                 <p className="font-semibold">Cover photo</p>
-                <p className="text-link-primary   active:bg-button-active p-1 rounded-md cursor-pointer hover:bg-button-primary">
+                <p className="cursor-pointer rounded-md p-1 text-link-primary hover:bg-button-primary active:bg-button-active">
                   Add
                 </p>
               </div>
             </div>
             <div className="flex justify-center py-4">
-              <div className="w-4/5 bg-background-primary h-44 rounded-lg"></div>
+              <div className="h-44 w-4/5 rounded-lg bg-background-primary"></div>
             </div>
           </div>
           {/* Bio Photo */}
-          <div className=" border-divider_secondary">
+          <div className="border-divider_secondary">
             <div className="p-4">
-              <div className="flex text-xl  justify-between">
+              <div className="flex justify-between text-xl">
                 <p className="font-semibold">Bio</p>
-                <p className="text-link-primary  active:bg-button-active p-1 rounded-md cursor-pointer hover:bg-button-primary">
+                <p className="cursor-pointer rounded-md p-1 text-link-primary hover:bg-button-primary active:bg-button-active">
                   Add
                 </p>
               </div>
@@ -94,11 +94,11 @@ export default function EditProfile({ setIsOpen }: EditProfileProps) {
             </div>
           </div>
           {/* Bio Photo */}
-          <div className=" border-divider_secondary">
+          <div className="border-divider_secondary">
             <div className="px-4 py-2">
-              <div className="flex text-xl  justify-between">
+              <div className="flex justify-between text-xl">
                 <p className="font-semibol d">Customize your intro</p>
-                <p className="text-link-primary  active:bg-button-active p-1 rounded-md cursor-pointer hover:bg-button-primary">
+                <p className="cursor-pointer rounded-md p-1 text-link-primary hover:bg-button-primary active:bg-button-active">
                   Add
                 </p>
               </div>
@@ -127,7 +127,7 @@ export default function EditProfile({ setIsOpen }: EditProfileProps) {
             </div>
           </div>
           <div className="m-4">
-            <button className="w-full p-2 transition-transform duration-100 active:scale-x-95  rounded-lg hover:bg-background-selected_hover bg-background-selected font-bold text-link-primary text-lg">
+            <button className="w-full rounded-lg bg-background-selected p-2 text-lg font-bold text-link-primary transition-transform duration-100 hover:bg-background-selected_hover active:scale-x-95">
               Edit your About info
             </button>
           </div>
