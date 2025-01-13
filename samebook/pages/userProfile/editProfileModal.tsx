@@ -1,16 +1,13 @@
+"use client";
 import Image from "next/image";
 import profiledefaultimage from "@/public/profiledefaultimage.png";
 import { useContext, useEffect, useRef } from "react";
-import { ModalTriggerContext } from "@/samebook/contexts/profileModalTrigger";
-
-// interface EditProfileProps {
-//   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-// }
+import { ProfileModalContext } from "@/samebook/contexts/profileModalTrigger";
 
 export default function EditProfile() {
   const modalRef = useRef<HTMLDivElement | null>(null);
 
-  const { setIsOpen } = useContext(ModalTriggerContext);
+  const { setIsOpen } = useContext(ProfileModalContext);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {

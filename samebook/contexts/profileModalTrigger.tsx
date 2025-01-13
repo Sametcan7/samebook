@@ -17,14 +17,14 @@ const defaultContextValue: ContextType = {
   setIsOpen: () => {},
 };
 
-export const ModalTriggerContext = createContext(defaultContextValue);
+export const ProfileModalContext = createContext(defaultContextValue);
 
-export default function ModalTriggerProvider({ children }: MTProviderProps) {
+export default function ProfileModalTrigger({ children }: MTProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <ModalTriggerContext.Provider value={{ isOpen, setIsOpen }}>
+    <ProfileModalContext.Provider value={{ isOpen, setIsOpen }}>
       {isOpen && <EditProfile />}
       {children}
-    </ModalTriggerContext.Provider>
+    </ProfileModalContext.Provider>
   );
 }

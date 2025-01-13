@@ -1,6 +1,7 @@
-import Center from "./center";
+import Main from "./main";
 import LeftSide from "./leftSide";
 import RightSide from "./rightSide";
+import PostModalContextProvider from "@/samebook/contexts/postModalTrigger";
 
 export default function HomePage() {
   return (
@@ -8,10 +9,11 @@ export default function HomePage() {
       <div className="flex">
         {/* Left */}
         <LeftSide />
-        {/* Center */}
+        {/* Main */}
         <div className="flex-1">
-          {/* SendPost side */}
-          <Center />
+          <PostModalContextProvider>
+            <Main />
+          </PostModalContextProvider>
         </div>
         {/* Right */}
         <RightSide />
