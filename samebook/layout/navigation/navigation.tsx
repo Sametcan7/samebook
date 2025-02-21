@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import profiledefaultimage from "@/public/profiledefaultimage.png";
+import Logo from "@/samebook/ui/logo";
 
 export default function Navigation() {
   return (
@@ -16,15 +17,8 @@ function LogoAndSearchInput() {
   return (
     <div className="fixed left-0 flex h-14 w-[400px] items-center pl-4">
       {/* Logo */}
-      <Link href="/" className="mr-2 flex items-center">
-        <span className="group relative text-4xl font-bold text-blue-600">
-          same
-          <span className="absolute inset-x-0 top-0 border-b-2 border-t-2 border-transparent transition-all duration-300 group-hover:border-white"></span>
-        </span>
-        <span className="group relative text-4xl font-bold text-white">
-          book
-          <span className="absolute inset-x-0 bottom-0 border-b-2 border-t-2 border-transparent transition-all duration-300 group-hover:border-blue-600"></span>
-        </span>
+      <Link href="/" className="mr-2">
+        <Logo />
       </Link>
       {/* Search Input */}
       <div className="mx-2 w-full">

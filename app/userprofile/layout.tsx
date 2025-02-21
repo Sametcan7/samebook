@@ -6,9 +6,9 @@ export default function UserProfileLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div className="pt-[var(--header-height)]">
       <ProfileHeader />
       <div className="bg-[#1C1C1D]">{children}</div>
-    </>
+    </div>
   );
 }

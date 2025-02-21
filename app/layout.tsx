@@ -23,9 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${roboto.className} antialiased`}>
         <Navigation />
-        <div className="min-h-screen bg-background-primary pt-[var(--header-height)]">
-          {children}
-        </div>
+        <div className="min-h-screen bg-background-primary">{children}</div>
       </body>
     </html>
   );
