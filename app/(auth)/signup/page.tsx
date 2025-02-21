@@ -28,7 +28,6 @@ type FormSchema = z.infer<typeof formSchema>;
 export default function SignUp() {
   const {
     register,
-    handleSubmit,
     formState: { errors },
   } = useForm<FormSchema>({ resolver: zodResolver(formSchema) });
 
@@ -44,10 +43,9 @@ export default function SignUp() {
         </p>
       </div>
       <div className="inline-block w-[50%] align-top">
-
         <form
-  action="ads"
-// onSubmit={handleSubmit((data) => console.log(data))}
+          action="ads"
+          // onSubmit={handleSubmit((data) => console.log(data))}
           className="flex flex-col rounded-lg border-[1px] border-divider_secondary bg-background-secondary p-4 shadow-xl shadow-background-secondary">
           <input
             {...register("name")}
